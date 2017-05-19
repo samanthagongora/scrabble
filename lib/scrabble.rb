@@ -1,16 +1,21 @@
 class Scrabble
 
   def score(word)
-    points = 0
-    return points if word == nil || word == ''
-    upcase_and_split(word).each do |letter|
-      points += point_values[letter]
-    end
-    points
+    return 0 if word == nil || word == ''
+    letters = upcase_and_split(word)
+    sum_points(letters)
   end
 
   def upcase_and_split(word)
     word.upcase.chars
+  end
+
+  def sum_points(letters)
+    points = 0
+    letters.each do |letter|
+      points += point_values[letter]
+    end
+    points
   end
 
   def point_values
