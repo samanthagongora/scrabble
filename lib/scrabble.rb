@@ -11,11 +11,7 @@ class Scrabble
   end
 
   def sum_points(letters)
-    points = 0
-    letters.each do |letter|
-      points += point_values[letter]
-    end
-    points
+    letters.reduce(0) {|points, letter| points += point_values[letter]}
   end
 
   def point_values
