@@ -1,9 +1,13 @@
 class Scrabble
 
   def score(word)
-    return 0 if word == nil || word == ''
+    return 0 if nil_or_empty?(word)
     letters = upcase_and_split(word)
     sum_points(letters)
+  end
+
+  def nil_or_empty?(word)
+    word == nil || word == ''
   end
 
   def upcase_and_split(word)
