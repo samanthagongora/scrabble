@@ -35,6 +35,21 @@ class ScrabbleTest < Minitest::Test
     refute nil_or_empty('')
   end
 
+  def upcase_and_split_returns_array_of_letters_for_single_letter
+    assert_equal 3, Scrabble.new.score("g")
+    assert_equal 1, Scrabble.new.score("l")
+  end
+
+  def upcase_and_split_returns_array_of_letters_for_two_letter_word
+    assert_equal 3, Scrabble.new.score("do")
+    assert_equal 2, Scrabble.new.score("no")
+  end
+
+  def upcase_and_split_returns_array_of_letters_for_5_letter_word
+    assert_equal 11, Scrabble.new.score("bendy")
+    assert_equal 15, Scrabble.new.score("glaze")
+  end
+
   def test_sum_points_can_sum_a_single_letter
     assert_equal 3, Scrabble.new.score("b")
     assert_equal 10, Scrabble.new.score("z")
