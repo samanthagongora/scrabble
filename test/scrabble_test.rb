@@ -19,4 +19,9 @@ class ScrabbleTest < Minitest::Test
     assert_equal 8, Scrabble.new.score("tasty")
     assert_equal 8, Scrabble.new.score("waste")
   end
+
+  def test_returns_zero_score_for_nil_or_empty_input
+    assert_equal 0, Scrabble.new.score(nil)
+    assert_equal 0, Scrabble.new.score("")
+  end
 end
