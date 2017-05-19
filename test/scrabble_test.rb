@@ -64,6 +64,4 @@ class ScrabbleTest < Minitest::Test
     assert_equal 7, Scrabble.new.score("troop")
     assert_equal 10, Scrabble.new.score("party")
   end
-
-
 end
