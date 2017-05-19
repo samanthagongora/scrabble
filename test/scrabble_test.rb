@@ -24,4 +24,21 @@ class ScrabbleTest < Minitest::Test
     assert_equal 0, Scrabble.new.score(nil)
     assert_equal 0, Scrabble.new.score("")
   end
+
+  def test_sum_points_can_sum_a_single_letter
+    assert_equal 3, Scrabble.new.score("b")
+    assert_equal 10, Scrabble.new.score("z")
+  end
+
+  def test_sum_points_can_sum_two_letters
+    assert_equal 2, Scrabble.new.score("an")
+    assert_equal 9, Scrabble.new.score("xi")
+  end
+
+  def test_sum_points_can_sum_five_letters
+    assert_equal 7, Scrabble.new.score("troop")
+    assert_equal 10, Scrabble.new.score("party")
+  end
+
+
 end
