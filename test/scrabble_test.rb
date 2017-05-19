@@ -25,6 +25,16 @@ class ScrabbleTest < Minitest::Test
     assert_equal 0, Scrabble.new.score("")
   end
 
+  def nil_or_empty_returns_false_for_word_input
+    refute nil_or_empty('r')
+    refute nil_or_empty('poop')
+  end
+
+  def nil_or_empty_returns_true_for_nil_or_empty_input
+    refute nil_or_empty(nil)
+    refute nil_or_empty('')
+  end
+
   def test_sum_points_can_sum_a_single_letter
     assert_equal 3, Scrabble.new.score("b")
     assert_equal 10, Scrabble.new.score("z")
